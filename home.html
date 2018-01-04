@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" >
+  <title>Merck slide sorter</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="asset/css/style.css">
+  <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+  <link rel="stylesheet" href="asset/css/font-awesome.min.css">
+  <script src="asset/js/jquery.min.js"></script>
+  <script src="asset/js/bootstrap.min.js"></script>
+  <script src="asset/js/angular.min.js"></script>t>
+</head>
+<body ng-app="myHome">
+    <div ng-include="'include/header.html'"></div>
+    <!-- HEADER ENDS HERE -->
+
+ <div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding lgMarginTop">
+        <div class="container noPadding">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 nopaddingLeft">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopaddingLeft">
+                            <div class="panel with-nav-tabs panel-default">
+                                    <div class="panel-heading">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active hidden-xs col-sm-5 col-md-5 col-lg-5 smPaddingAll"><a href="#tab1default" data-toggle="tab">MY PRESENTATION</a></li>
+                                                <li class="hidden-xs col-sm-4 col-md-4 col-lg-4 smPaddingAll"><a href="#tab2default" data-toggle="tab">IN PROGRESS</a></li>
+                                                <li class="hidden-xs col-sm-3 col-md-3 col-lg-3 smPaddingAll"><a href="#tab3default" data-toggle="tab">SUMMARY</a></li>
+                                                <li class="dropdown col-xs-12 hidden-sm hidden-md hidden-lg ">
+                                                    <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#tab1default" data-toggle="tab">PRESENTATION</a></li>
+                                                        <li><a href="#tab2default" data-toggle="tab">IN PROGRESS</a></li>
+                                                         <li><a href="#tab3default" data-toggle="tab">SUMMARY</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="tab1default">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding borderBottom  ">
+                                                    <p>PRESENTATION</p>
+                                                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 noPadding">
+                                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                            <p>presentation-1.pptx</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding borderBottom  ">
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 noPadding">
+                                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                                <p>presentation-2.pptx</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>                                                 
+                                            </div>
+                                            <div class="tab-pane fade" id="tab2default">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding borderBottom  ">
+                                                        <p>IN PROGRESS</p>
+                                                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 noPadding">
+                                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 noPadding">
+                                                                        <img class="img-responsive" src="asset/images/thumb-1.png" alt="logo curve">
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                                    <p>presentation.pptx</p>
+                                                                    <p>presentation title</p>
+                                                                    <p>Last Updated</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 noPadding">
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textRight editIcon">
+                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 textRight deleteIcon smMarginTop">
+                                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab3default">
+                                                <p>SUMMARY</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 noPaddingRight">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPaddingRight">
+                                <div class="panel with-nav-tabs panel-default">
+                                        <div class="panel-heading">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active col-xs-5 col-sm-5 col-md-5 col-lg-5"><a href="#tab1default" data-toggle="tab">MY V</a></li>
+                                                </ul>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade in active" id="tab1default">Default 1</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
+        
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+                    <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g1">
+                        <div class="circle fRight"></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2 noPadding textCenter">
+                        <h4>Recently Uploaded</h4>
+                    </div>
+                    <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g2">
+                        <div class="circle fLeft"></div>
+                    </div>
+                </div>
+
+                <div class="container noPadding smPaddingAllM">
+                    <div class="rArrow"  ><span class="glyphicon glyphicon-chevron-right"></span></div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
+                        <ul ng-controller="newSlide">
+                            <li ng-repeat="slidedata in responseData | limitTo:30" >
+                                <div class="slides"  >
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+                                        <img class='img-responsive' src="/service/getImage.aspx?Id={{slidedata.slideid}} &type=small" alt='{{slidedata.slidename}}'  />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
+                                        <span>{{slidedata.categoryname}}</span>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
+                                        <span>{{slidedata.slidename}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+            <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g1">
+                <div class="circle fRight"></div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2 noPadding textCenter">
+                <h4>Most Searched</h4>
+            </div>
+            <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g2">
+                <div class="circle fLeft"></div>
+            </div>
+        </div>
+            <div class="container noPadding smPaddingAllM">
+                    <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
+                    <ul ng-controller="MostSearched">
+                        <li ng-repeat="data in responseData.MostSearched | limitTo:30">
+                            <div class="slides"  >
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" alt='{{data.slidename}}'  />
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
+                                    <span>{{data.categoryname}}</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
+                                    <span>{{data.slidename}}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+                <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g1">
+                    <div class="circle fRight"></div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2 noPadding textCenter">
+                    <h4>Most Viewed</h4>
+                </div>
+                <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g2">
+                    <div class="circle fLeft"></div>
+                </div>
+            </div>
+            <div class="container noPadding smPaddingAllM">
+                <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
+                    <ul ng-controller="MostViewed">
+                        <li ng-repeat="data in responseData.MostViewed | limitTo:30">
+                            <div class="slides"  >
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" alt='{{data.slidename}}'  />
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
+                                    <span>{{data.categoryname}}</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
+                                    <span>{{data.slidename}}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+                    <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g1">
+                        <div class="circle fRight"></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2 noPadding textCenter">
+                        <h4>Most Downloaded</h4>
+                    </div>
+                    <div class="col-xs-3 col-sm-4 col-md-5 col-lg-5 noPadding slideHeader g2">
+                        <div class="circle fLeft"></div>
+                    </div>
+                </div>
+            <div class="container noPadding smPaddingAllM">
+                    <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
+                    <ul ng-controller="MostDownloaded">
+                        <li ng-repeat="data in responseData.MostDownloaded | limitTo:30 ">
+                            <div class="slides"  >
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
+                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" alt='{{data.slidename}}'  />
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
+                                    <span>{{data.categoryname}}</span>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
+                                    <span>{{data.slidename}}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            
+        <!-- slide thumb starts -->
+        
+        <!-- slide thumb ends -->
+    </div>
+ </div>
+ 
+
+
+ <!-- footer -->
+    <div ng-include="'include/footer.html'"></div>
+    <!-- footer -->
+
+    <script>
+        var slidedata = { "command": "getAllPresentation", "service": "UserService" };
+        var data = { "command": "getTrackedSlides", "service": "UserService" };
+        var url = "service/WebService.aspx";
+        var app = angular.module('myHome', []);
+
+        app.controller('newSlide', function($scope, $http) {
+            $http.post(url, slidedata)
+                .then(function(response) {
+                    $scope.responseData = response.data.result;
+                });
+
+        });
+
+        app.controller('MostSearched', function($scope, $http) {
+            $http.post(url, data)
+                .then(function(response) {
+                    $scope.responseData = response.data.result;
+                });
+
+        });
+
+        app.controller('MostViewed', function($scope, $http) {
+            $http.post(url, data)
+                .then(function(response) {
+                    $scope.responseData = response.data.result;
+                });
+
+        });
+
+        app.controller('MostDownloaded', function($scope, $http) {
+            $http.post(url, data)
+                .then(function(response) {
+                    $scope.responseData = response.data.result;
+                });
+
+        });
+
+        
+
+    </script>
+</body>
+</html>
