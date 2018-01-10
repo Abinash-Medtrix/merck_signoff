@@ -96,7 +96,7 @@
     </div>
 
 <script>
-
+var pptData = { "command": "getPresentationList", "service": "UserService" };
 var slideViewData = { "command": "getAllPresentation", "service": "UserService" };
 var reportdata = { "command": "getReportData", "data":{"userid": 0, "categoryid":0,"sdate": "", "edate": ""},"service":"UserService" };
 var url = "service/WebService.aspx";
@@ -163,7 +163,39 @@ var app = angular.module('myApp', []);
         });
     
 /* ppt view page */
+app.controller('pptCtrl', function($scope, $http) {
+    $http.post(url, pptData)
+        .then(function(response) {
+            $scope.responseData = response.data.result;
+        });
+    $scope.deletePresentation = function (list) {
+        var prsList = [];
+        angular.forEach(list, function (value, key) {
+            if (list[key].selected == list[key].presentationid) {
+                prsList.push(list[key].selected);
+            }
+        });
 
+        if (prsList.length > 0){
+            //console.log(prsList);
+            for(var i = 0; i < prsList.length; i++){
+                console.log('#prs'+prsList[i]);
+                $('#prs'+prsList[i]).remove();
+            }
+                $('#prs'+prsList[i]).html('');//delete();
+            var prsData = {"command":"deleteAdminPresentation", "data":prsList.toString(),"service":"UserService"};
+            alert("Presentation will be removed");
+            $http.post("service/WebService.aspx", prsData)
+            .then(function(response) {
+                $scope.responseData = response.data.result;
+                console.log("response.data.result : "+JSON.stringify(response))
+            });
+        }   
+        else{
+            alert("Please Select an presentation to delete");
+        }
+    };
+});
 
 </script>
 </body>

@@ -62,9 +62,10 @@ position: fixed !important; top: 0px; left: 0px; z-index: 99;
 .xsMarginTop2{margin-top: 3px;}
 .smMarginTop{margin-top: 15px;}
 .mdMarginTop{margin-top: 50px;}
+.mdMarginTop2{margin-top: 85px;}
 .lgMarginTop{margin-Top: 127px;}
 .lgMarginTop2 {margin-Top: 147px; }
-
+.lgMarginTop3 {margin-Top: 167px; }
 .borderBottom{
     border-bottom: 1px solid #a2a2a2;
     padding: 10px 0px; 
@@ -97,6 +98,8 @@ position: fixed !important; top: 0px; left: 0px; z-index: 99;
     -webkit-box-shadow: 0px 1x 1px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.25);
+    position: fixed !important;
+    z-index: 999;
 }
 select{
     border: none;
@@ -922,6 +925,13 @@ progress::-webkit-progress-value {
         padding: 6px 24px;
         margin-bottom: 15px;
     }
+    
+    .thumbs {
+        height: auto;
+    }
+    .noPaddingS{
+        padding-left: 0px; padding-right: 0px;
+    }
    
 }
 
@@ -936,8 +946,10 @@ progress::-webkit-progress-value {
         margin-bottom: 20px;
     }
     #custom-search-input {
-        margin: 60px -10px 0px 14px;
         padding: 0;
+        width: 100%;
+        left: 3%;
+
     }
     .dropdown .caret {
         float: right;
@@ -964,6 +976,10 @@ progress::-webkit-progress-value {
 .navbar-default .navbar-nav>li>a {
     color: #fff !important;
 }
+.navbar-default .navbar-nav>li>a.active {
+    color: #fff !important;
+    background-color: #eb3c96 !important;
+}
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #ffffff !important;
 }
@@ -972,10 +988,11 @@ progress::-webkit-progress-value {
     margin: 0px -15px !important;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+.navbar-default .navbar-nav>a .active, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: #fff !important;
     background-color: #eb3c96 !important;
 }
+
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #fff !important;
 }
@@ -986,9 +1003,54 @@ progress::-webkit-progress-value {
     border:none;
 }
 /* nav bar css ends*/ 
+.lgMarginTop2 {
+    margin-Top: 77px;
+}
+.lgMarginTop {
+    margin-Top: 53px;
+}
+#custom-search-input .form-control {
+    background-color: #FFF;
+    height: 32px;
+    border-radius: 5px;
+}
+.mTextCenter{
+    text-align: center;
+}
+.smMarginTop {
+    margin-top: 25px;
+}
+.catagory {
+    padding: 4px 4px !important;
+}
+
+.pName {
+    font-size: 12px;  padding: 0px 0px 0px 5px !important;
+}
+.slideTray ul li {
+    padding: 5px 5px;
+    width: 118px;
+}
+.shortPanel{
+    height: 70px;
+}
+.lgMarginTop3 {
+    margin-Top: 137px;
+}
+
 
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    
+    .thumbs {
+        height: auto;
+    }
+    #custom-search-input {
+        padding: 0;
+        z-index: 99;
+        position: fixed;
+        width: 390px;
+        top: 84px;
+        right: 10px;
+    }
 }

@@ -19,7 +19,8 @@
 </head>
 
 <body ng-app="myApp">
-<!-- mobile menu  starts -->
+<div class="container-fluid noPadding" ng-controller="MainCtrl" >
+    <!-- mobile menu  starts -->
 <div class="visible-xs">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -36,17 +37,16 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a ng-href="dashboard.html">Home</a></li>
-                        <li><a ng-href="create.html">Create Presentation</a></li>
+                        <li><a ng-class="{active:isActive('/home')}" href="#home" >HOME</a></li>
+                        <li><a ng-class="{active:isActive('/create')}" href="#create" >CREATE PRESENTATION</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
     </div>
     <!-- mobile menu ends -->
-
     <!-- main menu starts-->
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bgP noPadding hidden-xs fixedP" ng-controller="MainCtrl" >
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bgP noPadding hidden-xs fixedP"  >
 
         <div class="container noPadding">
             <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2 logo noPadding ">
@@ -85,12 +85,14 @@
         </div>
     </div>
         <!-- main menu ends-->
-      <div class="container-fluid noPadding">
-            <div ng-view></div>
-            <!-- footer -->
-            <div ng-include="'include/footer.html'"></div>
-            <!-- footer -->
-      </div>
+</div>
+
+    <div class="container-fluid noPadding">
+        <div ng-view></div>
+        <!-- footer -->
+        <div ng-include="'include/footer.html'"></div>
+        <!-- footer -->
+    </div>
     
 
         <script>
