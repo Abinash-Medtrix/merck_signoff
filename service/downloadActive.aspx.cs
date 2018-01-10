@@ -56,8 +56,6 @@ public partial class service_downloadActive : System.Web.UI.Page
             commandUp.Add("status", 1);
             commandUp.ExecuteNonQuery();
 
-
-
             Response.ContentType = "application/octet-stream";
             Response.AddHeader("content-disposition", "attachment; filename=presentation.pptx");
             Response.BufferOutput = true;
@@ -65,8 +63,6 @@ public partial class service_downloadActive : System.Web.UI.Page
             Response.End(); //downloading it
         }
         
-
-
     }
 
     public void addTracking(UInt64 Id)

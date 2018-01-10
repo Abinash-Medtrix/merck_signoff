@@ -13,11 +13,13 @@
     <script src="asset/js/bootstrap.min.js"></script>
     <script src="asset/js/angular.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 
 <body ng-app="myApp">
-    <div ng-include="'include/header.html'"></div>
-    <!-- HEADER ENDS HERE -->
+
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 lgMarginTop noPadding shortPanel">
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 noPadding">
@@ -29,13 +31,13 @@
                         <option value="Luteal Phase">Luteal Phase</option>
                     </select>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 noPadding">
-            <select name="mostRecent">
-                <option value="General ART">MOST RECENT</option>
-                <option value="Triggering">MOST DOWNLOAD</option>
-                <option value="Laboratory">MOST RECENT</option>
-            </select>
-        </div>
+            <!-- <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 noPadding">
+                <select name="mostRecent">
+                    <option value="General ART">MOST RECENT</option>
+                    <option value="Triggering">MOST DOWNLOAD</option>
+                    <option value="Laboratory">MOST RECENT</option>
+                </select>
+            </div> -->
         <div id="custom-search-input">
                 <div class="input-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <input class="form-control " ng-model="data" placeholder="search file" type="text">
@@ -83,9 +85,7 @@
         </div>
        
     </div>
-    <!-- footer -->
-    <div ng-include="'include/footer.html'"></div>
-    <!-- footer -->
+  
 
     <!-- slide tray here-->
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding" ng-controller="myCtrl">
@@ -101,89 +101,33 @@
                                 <button class="btn" ng-click = "clearImages()">Clear</button>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 noPadding textRight download">
-                                
                                 <a class="button btn" href="/service/downloadActive.aspx?id=0" target="_parent">Download</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding xsMarginTop2" id = "clonedImg">
-                        <ul></ul>
+                        <ul id="sortable" ></ul>
                     </div> 
             </div>
         </div>
     </div>
     <!-- slide tray over-->
     
-    <script>
-        var data = { "command": "getAllPresentation", "service": "UserService" };
-        var url = "service/WebService.aspx";
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope, $http) {
-            $http.post(url, data)
-                .then(function(response) {
-                    $scope.responseData = response.data.result;
-                    //console.log("response.data.result : "+JSON.stringify(response.data.result))
-                });
-
-            $scope.modal = angular.element(document.querySelector('#myModal'));
-            $scope.modalImg = angular.element(document.querySelector("#modalImg"));
-            $scope.captionText = angular.element(document.getElementById("caption"));
-
-            $scope.openInPopup = function(e) {
-                console.log(e.currentTarget.getAttribute("data-url"));
-                $($scope.modalImg).attr('src', e.currentTarget.getAttribute("data-url"));
-                $($scope.modal).show();//css('display', 'block');
-                $($scope.captionText).html(e.currentTarget.alt);
-            }
-
-            $scope.closePopup = function(){
-                $($scope.modal).hide();   
-            }
-			
-			$scope.cloneImg = function(e){
-				var $newDiv = $(e.currentTarget).next().clone();
-				var li = $("<li>");
-				li.html($newDiv);
-				$("#clonedImg ul").append(li);
-                var slidId = $newDiv.attr("data-slideid");
-                console.log("$newDiv : "+$newDiv.attr("data-slideid"));
-                var slideData = {"command":"addUserSlide", "data":{"slideid":slidId},"service":"UserService"};
-                $http.post("service/WebService.aspx", slideData)
-                .then(function(response) {
-                    //$scope.responseData = response.data.result;
-                    console.log("response.data.result : "+JSON.stringify(response))
-                });
-			}
-			
-			$scope.clearImages = function(){
-				$("#clonedImg ul").html("");
-			}
-			$scope.slideId = [];
-			$scope.downloadImages = function(){
-                alert(1)
-                var downloadData = {"command":"getActiveSlides","data":0,"service":"UserService"};
-                $http.get("service/downloadActive.aspx?id=0", downloadData)
-                .then(function(response) {
-                    //$scope.responseData = response.data.result;
-                    console.log("response.data.result : "+JSON.stringify(response))
-                });
-			}
-        });
-		
-		
-
-        $( "#down" ).click(function() {
+<script>
+    
+    $( "#down" ).click(function() {
         $( ".slideTray" ).animate({ "height": "27px" }, "slow" );
         $( "#down" ).hide();
         $( "#up" ).show();
-        });
-        $( "#up" ).click(function() {
+    });
+    $( "#up" ).click(function() {
         $( ".slideTray" ).animate({ "height": "400px" }, "slow" );
         $( "#up" ).hide();
         $( "#down" ).show();
-       });
+    });
 
-    </script>
+
+</script>
 </body>
 
 </html>

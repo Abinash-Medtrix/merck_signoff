@@ -11,19 +11,16 @@
   <link rel="stylesheet" href="asset/css/font-awesome.min.css">
   <script src="asset/js/jquery.min.js"></script>
   <script src="asset/js/bootstrap.min.js"></script>
-  <script src="asset/js/angular.min.js"></script>t>
+  <script src="asset/js/angular.min.js"></script>
 </head>
-<body ng-app="myHome">
-    <div ng-include="'include/header.html'"></div>
-    <!-- HEADER ENDS HERE -->
-
- <div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding lgMarginTop">
+<body ng-app="myApp">
+ <div class="container-fluid noPadding lgMarginTop2">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
         <div class="container noPadding">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 nopaddingLeft">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopaddingLeft">
-                            <div class="panel with-nav-tabs panel-default">
+                            <div class="panel with-nav-tabs panel-default" id="home">
                                     <div class="panel-heading">
                                             <ul class="nav nav-tabs">
                                                 <li class="active hidden-xs col-sm-5 col-md-5 col-lg-5 smPaddingAll"><a href="#tab1default" data-toggle="tab">MY PRESENTATION</a></li>
@@ -43,20 +40,12 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active" id="tab1default">
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding borderBottom  ">
-                                                    <p>PRESENTATION</p>
                                                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 noPadding">
                                                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                             <p>presentation-1.pptx</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding borderBottom  ">
-                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 noPadding">
-                                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                                <p>presentation-2.pptx</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>                                                 
                                             </div>
                                             <div class="tab-pane fade" id="tab2default">
                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding borderBottom  ">
@@ -97,7 +86,7 @@
                                                     <li class="active col-xs-5 col-sm-5 col-md-5 col-lg-5"><a href="#tab1default" data-toggle="tab">MY V</a></li>
                                                 </ul>
                                         </div>
-                                        <div class="panel-body">
+                                        <div >
                                             <div class="tab-content">
                                                 <div class="tab-pane fade in active" id="tab1default">Default 1</div>
                                             </div>
@@ -123,19 +112,19 @@
                 </div>
 
                 <div class="container noPadding smPaddingAllM">
-                    <div class="rArrow"  ><span class="glyphicon glyphicon-chevron-right"></span></div>
+                    <!-- <div class="rArrow"  ><span class="glyphicon glyphicon-chevron-right"></span></div> -->
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
                         <ul ng-controller="newSlide">
-                            <li ng-repeat="slidedata in responseData | limitTo:30" >
+                            <li ng-repeat="data in responseData | limitTo:30" >
                                 <div class="slides"  >
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
-                                        <img class='img-responsive' src="/service/getImage.aspx?Id={{slidedata.slideid}} &type=small" alt='{{slidedata.slidename}}'  />
+                                        <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" alt='{{data.slidename}}'  />
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
-                                        <span>{{slidedata.categoryname}}</span>
+                                        <span>{{data.categoryname}}</span>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
-                                        <span>{{slidedata.slidename}}</span>
+                                        <span>{{data.slidename}}</span>
                                     </div>
                                 </div>
                             </li>
@@ -156,19 +145,19 @@
             </div>
         </div>
             <div class="container noPadding smPaddingAllM">
-                    <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div>
+                    <!-- <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div> -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
                     <ul ng-controller="MostSearched">
-                        <li ng-repeat="data in responseData.MostSearched | limitTo:30">
+                        <li ng-repeat="trackdata in responseData.MostSearched | limitTo:30">
                             <div class="slides"  >
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
-                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" alt='{{data.slidename}}'  />
+                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{trackdata.slideid}} &type=small" alt='{{trackdata.slidename}}'  />
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
-                                    <span>{{data.categoryname}}</span>
+                                    <span>{{trackdata.categoryname}}</span>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
-                                    <span>{{data.slidename}}</span>
+                                    <span>{{trackdata.slidename}}</span>
                                 </div>
                             </div>
                         </li>
@@ -188,19 +177,19 @@
                 </div>
             </div>
             <div class="container noPadding smPaddingAllM">
-                <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div>
+               <!--  <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div> -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
                     <ul ng-controller="MostViewed">
-                        <li ng-repeat="data in responseData.MostViewed | limitTo:30">
+                        <li ng-repeat="trackdata in responseData.MostViewed | limitTo:30">
                             <div class="slides"  >
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
-                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" alt='{{data.slidename}}'  />
+                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{trackdata.slideid}} &type=small" alt='{{trackdata.slidename}}'  />
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
-                                    <span>{{data.categoryname}}</span>
+                                    <span>{{trackdata.categoryname}}</span>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
-                                    <span>{{data.slidename}}</span>
+                                    <span>{{trackdata.slidename}}</span>
                                 </div>
                             </div>
                         </li>
@@ -220,80 +209,34 @@
                     </div>
                 </div>
             <div class="container noPadding smPaddingAllM">
-                    <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div>
+                   <!--  <div class="rArrow"><span class="glyphicon glyphicon-chevron-right"></span></div> -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding scroll">
                     <ul ng-controller="MostDownloaded">
-                        <li ng-repeat="data in responseData.MostDownloaded | limitTo:30 ">
+                        <li ng-repeat="trackdata in responseData.MostDownloaded | limitTo:30 ">
                             <div class="slides"  >
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
-                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" alt='{{data.slidename}}'  />
+                                    <img class='img-responsive' src="/service/getImage.aspx?Id={{trackdata.slideid}} &type=small" alt='{{trackdata.slidename}}'  />
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory">
-                                    <span>{{data.categoryname}}</span>
+                                    <span>{{trackdata.categoryname}}</span>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pName">
-                                    <span>{{data.slidename}}</span>
+                                    <span>{{trackdata.slidename}}</span>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-
-
-            
-        <!-- slide thumb starts -->
-        
-        <!-- slide thumb ends -->
     </div>
  </div>
  
 
+<script>
+    
+    
 
- <!-- footer -->
-    <div ng-include="'include/footer.html'"></div>
-    <!-- footer -->
 
-    <script>
-        var slidedata = { "command": "getAllPresentation", "service": "UserService" };
-        var data = { "command": "getTrackedSlides", "service": "UserService" };
-        var url = "service/WebService.aspx";
-        var app = angular.module('myHome', []);
-
-        app.controller('newSlide', function($scope, $http) {
-            $http.post(url, slidedata)
-                .then(function(response) {
-                    $scope.responseData = response.data.result;
-                });
-
-        });
-
-        app.controller('MostSearched', function($scope, $http) {
-            $http.post(url, data)
-                .then(function(response) {
-                    $scope.responseData = response.data.result;
-                });
-
-        });
-
-        app.controller('MostViewed', function($scope, $http) {
-            $http.post(url, data)
-                .then(function(response) {
-                    $scope.responseData = response.data.result;
-                });
-
-        });
-
-        app.controller('MostDownloaded', function($scope, $http) {
-            $http.post(url, data)
-                .then(function(response) {
-                    $scope.responseData = response.data.result;
-                });
-
-        });
-
-        
-
-    </script>
+</script>
 </body>
 </html>

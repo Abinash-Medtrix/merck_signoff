@@ -9,7 +9,7 @@
 
 
 
-body{padding: 0px; margin: 0px;  font-family: Verdana; background: #f9f9f9 !important;}
+body{padding: 0px; margin: 0px;  font-family: Verdana; background: #f9f9f9 !important; overflow-y: scroll;}
 .noPadding{padding-left: 0px !important; padding-right: 0px !important;}
 .noMargin{margin-left: 0px !important; margin-right: 0px !important;}
 .centermargin{margin: 0 auto;}
@@ -63,7 +63,7 @@ position: fixed !important; top: 0px; left: 0px; z-index: 99;
 .smMarginTop{margin-top: 15px;}
 .mdMarginTop{margin-top: 50px;}
 .lgMarginTop{margin-Top: 127px;}
-.lgMarginTop2 {margin-Top: 147px;}
+.lgMarginTop2 {margin-Top: 147px; }
 
 .borderBottom{
     border-bottom: 1px solid #a2a2a2;
@@ -85,18 +85,8 @@ position: fixed !important; top: 0px; left: 0px; z-index: 99;
     color: #fff;
     padding: 23px 0px;
 }
-.user .fa-user{
-    border: 1px solid #fff;
-    padding: 5px 6px;
-    border-radius: 12px;
-    font-size: 10px;
-}
-
-.user .fa-bell{
-    border: 1px solid #fff;
-    padding: 5px 5px;
-    border-radius: 12px;
-    font-size: 10px;
+.user .fa{
+    font-size: 18px;
 }
 
 /* main container starts here */
@@ -141,6 +131,13 @@ select{
      -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
      box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
 }
+#searchPanel ul{
+    list-style: none;  margin: 0px; padding: 0px;
+}
+
+#searchPanel ul li{
+    margin-right: 30px; float: left;
+}
 #searchPanel .active a{
     text-decoration: none;
     font-size: 16px;
@@ -161,9 +158,12 @@ select{
     text-decoration: none !important;
     color: #EE3D96 !important;
     border-bottom: 3px solid #EE3D96;
-    width: 100%;
 }
-
+#searchPanel a.active{
+    text-decoration: none !important;
+    color: #EE3D96 !important;
+    border-bottom: 3px solid #EE3D96;
+}
 #custom-search-input {
     padding: 0;
     z-index: 99;
@@ -230,6 +230,12 @@ select{
     height: 400px;
     overflow: auto;
 }
+
+#home.panel.with-nav-tabs .panel-body{
+    height: 200px;
+    overflow: auto;
+}
+
 
 .panel.with-nav-tabs .nav-tabs{
 	border-bottom: none;
@@ -641,6 +647,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#522e91', end
 .footer{
     background: #fff;
     padding: 15px 0px;
+    margin-bottom: 30px;
 }
 .footer ul{
     padding: 0px;
@@ -660,9 +667,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#522e91', end
 }
 
 .searchTable .form-control{
-    float: right;
-    width: 50%;
     margin: 10px 17px 0px 0px;
+}
+.searchTable .btn{
+    margin: 10px 17px 0px 0px;
+    float: right;
 }
 
 /* .popup{
@@ -840,7 +849,7 @@ progress::-webkit-progress-value {
 	100% {background-position: -100px 0px, 0 0, 0 0}
 }
 
-#uploadForm  input{
+#uploadForm  input, textarea{
     width: 100%;
     border-radius: 5px;
     padding: 5px 5px;
@@ -849,8 +858,17 @@ progress::-webkit-progress-value {
 }
 #uploadForm .btn{
     font-size: 20px;
-    padding: 6px 25px;
+    padding: 5px 52px;
+    background: #522e90;
+    color: #fff;
+    border-radius: 5px 5px;
 }
+#uploadForm select{
+    padding: 6px 2px;
+    border: 1px solid #ddd !important;
+    border-radius: 5px 5px;
+}
+
 /* dashboard page ends here */
 
 

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" >
+  <title>Merck slide sorter</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+  <link rel="stylesheet" href="asset/css/style.css">
+  <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+  <link rel="stylesheet" href="asset/css/font-awesome.min.css">
+  <script src="asset/js/jquery.min.js"></script>
+  <script src="asset/js/bootstrap.min.js"></script>
+  <script src="asset/js/angular.min.js"></script>
+
+ 
+  
+</head>
+<body ng-app="myApp">
+
+<div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding lgMarginTop2">
+        <div class="container noPadding">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 nopaddingLeft">
+                    <div class="panel with-nav-tabs panel-default">
+                        <div class="panel-heading">
+                            <ul class="nav nav-tabs">
+                                <li class="active col-xs-5 col-sm-5 col-md-5 col-lg-5"><a >VISITORS</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 noPaddingRight">
+                        <div class="panel with-nav-tabs panel-default">
+                            <div class="panel-heading">
+                                <ul class="nav nav-tabs">
+                                    <li class="active col-xs-5 col-sm-5 col-md-5 col-lg-5"><a >DOWNLOADS</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding" ng-controller="reportCtrl" >
+                        <div class="panel with-nav-tabs panel-default">
+                            <div class="panel-heading">
+                                <ul class="nav nav-tabs">
+                                    <li class="active col-xs-3 col-sm-3 col-md-3 col-lg-3"><a >Report VIew</a></li>
+                                </ul>
+                            </div>
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active">
+                                        <div class="table-responsive">          
+                                            <table class="table">
+                                              <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class='input-group date ' id='datetimepicker1'>
+                                                            <input type='text' class="form-control" />
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                        <div class='input-group date ' id='datetimepicker1'>
+                                                            <input type='text' class="form-control" />
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div> 
+                                                    </th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                  <th><a class="button btn" href="/service/downloadReport.aspx" target="_parent">Download Report</a></th>
+                                                </tr>
+                                                <tr>
+                                                    <th><label><input type="checkbox" value="">presentation name</label></th>
+                                                    <th>Slide name</th>
+                                                    <th>Category name</th>
+                                                    <th>Searches</th>
+                                                    <th>View</th>
+                                                    <th>Downloads</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody style="background:#f9f9f9;">
+                                                    <tr ng-repeat="reportdata in responseData">
+                                                        <td><label><input type="checkbox" value="">{{reportdata["presentation name"]}}</label></th>
+                                                        <td>{{reportdata["slide name"]}}</th>
+                                                        <td>{{reportdata["category name"]}}</td>
+                                                        <td>{{reportdata["no of searches"]}}</td>
+                                                        <td>{{reportdata["no of views"]}}</td>
+                                                        <td>{{reportdata["no of downloads"]}}</td>
+                                                        <td>{{reportdata["uploaded date"]}}</td>
+                                                    </tr>
+                                              </tbody>
+                                            </table>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!--  <script>
+        
+        var reportdata = { "command": "getReportData", "data":{"userid": 0, "categoryid":0,"sdate": "", "edate": ""},"service":"UserService" };
+        var url = "service/WebService.aspx";
+        var app = angular.module('myApp', []);
+        app.controller('reportCtrl', function($scope, $http) {
+            $http.post(url, reportdata)
+                .then(function(response) {
+                    $scope.responseData = response.data.result;
+                });
+        });
+
+    </script> -->
+</body>
+</html>

@@ -14,32 +14,23 @@
     <script src="asset/js/angular.min.js"></script>
 
 </head>
-
-<body ng-app="myApp" ng-controller="myCtrl">
-    <div ng-include="'include/header_admin.html'"></div>
-    <!-- HEADER ENDS HERE -->
+<body ng-app="myApp">
+    
+<div  ng-controller="slideCtrl" class="container-fluid noPadding">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 lgMarginTop noPadding shortPanel">
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 noPadding">
-                <select  class="selectpicker"  name="catagory" ng-model="data.categoryname" >
+                <select  class="selectpicker"  name="catagory" ng-model="slideViewData.categoryname" >
                     <option value="">Select Catagory</option> 
                     <option value="General ART">General ART</option>
                     <option value="Triggering">Triggering/ Stimulation</option>
                     <option value="Laboratory">Laboratory</option>
                     <option value="Luteal Phase">Luteal Phase</option>
                 </select>
-                
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 noPadding">
-            <select name="mostRecent">
-                <option value="MostSearched">MOST RECENT</option>
-                <option value="downloaded">MOST DOWNLOAD</option>
-                <option value="viewed">MOST VIEWED</option>
-            </select>
             </div>
             <div id="custom-search-input">
                 <div class="input-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input class="form-control " ng-model="data" placeholder="search file" type="text">
+                        <input class="form-control " ng-model="slideViewData" placeholder="search file" type="text">
                         <span class="input-group-btn">
                         <button class="btn btn-danger" type="button">
                             <span class="glyphicon glyphicon-search"></span>
@@ -49,19 +40,20 @@
             </div>
         </div>
     </div>
+
     <div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 smMarginTop">
             <div class="container noPaddingS">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding smMarginTop" >
-                    <div class='col-xs-6 col-sm-4 col-md-3 col-lg-3' ng-repeat="data in responseData | filter: data ">
-                        <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding thumbs' id = 'slideRemove'+{{'$index'}}>
+                    <div class='col-xs-6 col-sm-4 col-md-3 col-lg-3' ng-repeat="slideViewData in responseData | filter: slideViewData ">
+                        <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding thumbs' id = 'slideRemove{{$index}}'>
                             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding '>
                                 <button ng-click="removeSlide($event)" class="remove"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                                <img class='img-responsive' src="/service/getImage.aspx?Id={{data.slideid}} &type=small" 
-                                data-url = "service/getImage.aspx?Id={{data.slideid}}" alt='{{data.slidename}}' ng-click="openInPopup($event)" />
+                                <img class='img-responsive' src="service/getImage.aspx?Id={{slideViewData.slideid}}&type=small" 
+                                slideViewData-url = "service/getImage.aspx?Id={{slideViewData.slideid}}" alt='{{slideViewData.slidename}}' slideViewData-SlideId = "{{slideViewData.slideid}}" ng-click="openInPopup($event)" />
                             </div>
-                            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory'>{{data.categoryname}}</div>
-                            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 pName'>{{data.slidename}}</div>
+                            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 catagory'>{{slideViewData.categoryname}}</div>
+                            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 pName'>{{slideViewData.slidename}}</div>
                         </div>
                     </div>
                 </div>
@@ -69,8 +61,7 @@
         </div>
     </div>
 
-    <div id="myModal" class="modal" ng-controller="myCtrl">
-        
+    <div id="myModal" class="modal">
         <div class="modal-content">
             <div id="caption"></div>
             <div class="close" ng-click="closePopup()">
@@ -82,61 +73,26 @@
                 <button><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
             </div> -->
         </div>
-       
     </div>
-    <!-- footer -->
-    <div ng-include="'include/footer.html'"></div>
-    <!-- footer -->
     
-        <script>
-            var data = { "command": "getAllPresentation", "service": "UserService" };
-            var url = "service/WebService.aspx";
-            var app = angular.module('myApp', []);
-            app.controller('myCtrl', function($scope, $http) {
-                $http.post(url, data)
-                    .then(function(response) {
-                        $scope.responseData = response.data.result;
-                    });
-
-                   
-
-                $scope.modal = angular.element(document.querySelector('#myModal'));
-                $scope.modalImg = angular.element(document.querySelector("#modalImg"));
-                $scope.captionText = angular.element(document.getElementById("caption"));
-
-                $scope.openInPopup = function(e) {
-                    console.log(e.currentTarget.getAttribute("data-url"));
-                    $($scope.modalImg).attr('src', e.currentTarget.getAttribute("data-url"));
-                    $($scope.modal).show();//css('display', 'block');
-                    $($scope.captionText).html(e.currentTarget.alt);
-                }
-
-              
-               
-
-                $scope.closePopup = function(){
-                    $($scope.modal).hide();   
-                }
-
-                $scope.removeSlide = function(){
-
-                }
-
-            });
+</div>
 
 
-            $( "#down" ).click(function() {
+    
+<script>
+    
+        $( "#down" ).click(function() {
             $( ".slideTray" ).animate({ "height": "27px" }, "slow" );
             $( "#down" ).hide();
             $( "#up" ).show();
-            });
-            $( "#up" ).click(function() {
+        });
+        $( "#up" ).click(function() {
             $( ".slideTray" ).animate({ "height": "180px" }, "slow" );
             $( "#up" ).hide();
             $( "#down" ).show();
         });
 
-        </script>
-</body>
+</script>
 
+</body>
 </html>

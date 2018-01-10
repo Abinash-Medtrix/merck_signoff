@@ -13,28 +13,25 @@
   <script src="asset/js/bootstrap.min.js"></script>
   <script src="asset/js/angular.min.js"></script>
 
- 
-  
 </head>
-<body ng-app="myPPT">
-    <div ng-include="'include/header_admin.html'"></div>
-    <!-- HEADER ENDS HERE -->
-
-<div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
+<body ng-app="myApp">
+<div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding" ng-controller="pptCtrl">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding lgMarginTop2">
         <div class="container noPadding">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding ">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
-                    <div class="panel with-nav-tabs panel-default"  ng-controller="myCtrl">
+                    <div class="panel with-nav-tabs panel-default"  >
                         <div class="panel-heading">
                             <ul class="nav nav-tabs">
-                                <li class="active col-xs-3 col-sm-3 col-md-3 col-lg-3"><a >Presentation View</a></li>
-                                <li  class="active col-xs-9 col-sm-9 col-md-9 col-lg-9 searchTable">
+                                <li  class=" col-xs-6 col-sm-6 col-md-6 col-lg-6 searchTable">
                                     <input class="form-control " ng-model="searchKeyword" placeholder="search file" type="text">
+                                </li>
+                                <li  class="searchTable">
+                                    <button class="btn" ng-click = "deletePresentation(responseData)">Delete</button>
                                 </li>
                             </ul>
                         </div>
-                        <div class="panel-body " >
+                        <div class="panel-body">
                             <div class="tab-content col-xs-12 col-sm-12 col-md-12 col-lg-12 noPadding">
                                 <div class="tab-pane fade in active">
                                     <div class="table-responsive">          
@@ -49,12 +46,13 @@
                                             </tr>
                                           </thead>
                                           <tbody style="background:#f9f9f9;"  >
-                                            <tr ng-repeat="data in responseData | filter: searchKeyword " >
-                                                <th>{{data.filename}}</th>
-                                                <th>{{data.presentationname}}</th>
-                                                <th>{{data.metatag}}</th>
-                                                <th>{{data.categoryname}}</th>
-                                                <th>{{data.createddate | date}}</th>
+                                            <tr ng-repeat="pptData in responseData | filter: searchKeyword " id = 'prs{{pptData.presentationid}}' >
+                                                <th><input type="checkbox" ng-model="pptData.selected"
+                                                    ng-true-value="'{{pptData.presentationid}}'" ng-false-value="''" pptData-pId = '{{pptData.presentationid}}'> {{pptData.filename}}</th>
+                                                <th>{{pptData.presentationname}}</th>
+                                                <th>{{pptData.metatag}}</th>
+                                                <th>{{pptData.categoryname}}</th>
+                                                <th>{{pptData.createddate | date}}</th>
                                             </tr>
                                           </tbody>
                                         </table>
@@ -68,31 +66,45 @@
             </div>
         </div>
     </div>
-</div>
 
-
-
- <!-- footer -->
-    <div ng-include="'include/footer.html'"></div>
-    <!-- footer -->
-
-    <script>
+<script>
         
-    
-       
-        var data = { "command": "getPresentationList", "service": "UserService" };
-        var url = "service/WebService.aspx";
-            var app = angular.module('myPPT', []);
-            app.controller('myCtrl', function($scope, $http) {
-                $http.post(url, data)
-                    .then(function(response) {
-                        $scope.responseData = response.data.result;
-                    });
+var pptData = { "command": "getPresentationList", "service": "UserService" };
+var url = "service/WebService.aspx";
+var app = angular.module('myApp', []);
+app.controller('pptCtrl', function($scope, $http) {
+    $http.post(url, pptData)
+        .then(function(response) {
+            $scope.responseData = response.data.result;
         });
-       
+    $scope.deletePresentation = function (list) {
+        var prsList = [];
+        angular.forEach(list, function (value, key) {
+            if (list[key].selected == list[key].presentationid) {
+                prsList.push(list[key].selected);
+            }
+        });
 
-       
-
-    </script>
+        if (prsList.length > 0){
+            //console.log(prsList);
+            for(var i = 0; i < prsList.length; i++){
+                console.log('#prs'+prsList[i]);
+                $('#prs'+prsList[i]).remove();
+            }
+                $('#prs'+prsList[i]).html('');//delete();
+            var prsData = {"command":"deleteAdminPresentation", "data":prsList.toString(),"service":"UserService"};
+            alert("Presentation will be removed");
+            $http.post("service/WebService.aspx", prsData)
+            .then(function(response) {
+                $scope.responseData = response.data.result;
+                console.log("response.data.result : "+JSON.stringify(response))
+            });
+        }   
+        else{
+            alert("Please Select an presentation to delete");
+        }
+    };
+});
+</script>
 </body>
 </html>
